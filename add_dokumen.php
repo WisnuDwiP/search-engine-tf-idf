@@ -8,13 +8,8 @@
 <head>
 	<meta name="referrer" content="strict-origin" />
 	<title>Dokumen Jurnal</title>
-	<link rel="stylesheet" type="text/css" href="assets/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.min.css">
-	<style>
-		* {
-			font-family: awesome;
-		}
-	</style>
+	<link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
@@ -51,7 +46,7 @@
 					<th scope="col">Abstrak</th>
 					<th scope="col">Kata Kunci</th>
 					<th scope="col">Kode</th>
-
+					<th scope="col">Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -147,43 +142,43 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- Modal -->
+		<!-- Modal -->
 
-	<div class="modal fade" id="stopword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-scrollable">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Stopword Sastrawi</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+		<div class="modal fade" id="stopword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Stopword Sastrawi</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<table class="table table-sm">
+							<thead>
+								<tr>
+									<th class="text-center bg-primary text-white" scope="col">Daftar Kata</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php foreach($stopword as $list) : ?>
+								<tr>
+									<td class="text-center"><?= $list; ?></td>
+								</tr>
+								<?php endforeach; ?>
+							</tbody>
+						</table>
+					</div>
 				</div>
-				<div class="modal-body">
-					<table class="table table-sm">
-						<thead>
-							<tr>
-								<th class="text-center bg-primary text-white" scope="col">Daftar Kata</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php foreach($stopword as $list) : ?>
-							<tr>
-								<td class="text-center"><?= $list; ?></td>
-							</tr>
-							<?php endforeach; ?>
-						</tbody>
-					</table>
-				</div>
-
 			</div>
 		</div>
 	</div>
-	</div>
 
 	<script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- <script type="text/javascript" src="assets/bootstrap/dist/js/bootstrap.min.js"></script> -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>	 -->
 </body>
 
 </html>
