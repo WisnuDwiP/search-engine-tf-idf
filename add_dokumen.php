@@ -21,7 +21,9 @@
 			</ol>
 		</nav>
 
-		<h2 class="text-center">Daftar Jurnal</h2>
+		<h1 class="text-center">Daftar Jurnal</h1>
+		<br>
+		<br>
 		<div class="add float-right">
 			<div>
 				<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal"><i
@@ -33,6 +35,8 @@
 				<a class="btn btn-info btn-sm" href="_tokenisasi.php">Text Processing</a>
 			</div>
 		</div>
+		<br>
+
 		<table class="table table-striped">
 			<thead class="bg-primary text-white">
 				<tr>
@@ -50,11 +54,27 @@
 				</tr>
 			</thead>
 			<tbody>
+				<?php 
+				include "koneksi.php";
+				$limit = 10;
+				$halaman = isset($_GET['halaman'])?(int)$_GET['halaman'] : 1;
+				$halaman_awal = ($halaman>1) ? ($halaman * $limit) - $limit : 0;
+
+				$previous = $halaman -1;
+				$next = $halaman +1;
+
+				$query = mysqli_query($konek,"SELECT * FROM tbjurnal ORDER BY Id");
+				$total_hasil_result = mysqli_num_rows($query);
+				$total_halaman = ceil($total_hasil_result / $limit);
+
+				$data_query = mysqli_query($konek,"SELECT * FROM tbjurnal ORDER BY Id limit $halaman_awal, $limit");
+				// $nomor = $halaman_awal + 1;
+				// while($d = mysqli_fetch_array($data_query)) {
+				?>
+
 				<?php
-				    	include 'koneksi.php';
-						$result = mysqli_query($konek,"SELECT * FROM tbjurnal ORDER BY Id");
-						$no = 1;
-							while($row = mysqli_fetch_array($result)) {
+						$no = $halaman_awal + 1;
+						while($row = mysqli_fetch_array($data_query)) {
 								echo '<tr>';
 						    	echo '<td>'.$no.'</td>';
 							    echo '<td>'.$row['sumber'].'</td>';
@@ -77,6 +97,32 @@
 						?>
 			</tbody>
 		</table>
+		<div>
+			<ul class="pagination">
+				<?php 
+					if($halaman > 1) {
+						echo "<li class='page-item'><a class='page-link' href='?halaman=$previous'>&laquo;</a></li>";
+					} else {
+						echo "<li class='page-item disabled'><a class='page-link' href='?halaman=$previous'>&laquo;</a></li>";
+					}
+				?>
+				
+				<?php 
+					for($x=1;$x<=$total_halaman;$x++){
+						if($x != $halaman) {
+							echo "<li class='page-item'><a class='page-link' href='?halaman=$x'>$x</a></li>";
+						} else {
+							echo "<li class='page-item active'><a class='page-link' href='?halaman=$x'>$x</a></li>";
+						}
+					}
+				?>
+				<li class="page-item">
+					<a class="page-link" <?php if($halaman < $total_halaman) { echo "href='?halaman=$next'"; } ?>>
+						&raquo;
+					</a>
+				</li>
+			</ul>
+		</div>
 
 		<!-- Modal Add Artikel-->
 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -177,7 +223,9 @@
 
 	<script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script>
 	<!-- <script type="text/javascript" src="assets/bootstrap/dist/js/bootstrap.min.js"></script> -->
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+	</script>
 	<!-- <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>	 -->
 </body>
 

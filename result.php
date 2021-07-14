@@ -4,11 +4,11 @@
 <head>
 	<meta name="referrer" content="strict-origin" />
 	<title>SIRULA</title>
-	<link rel="stylesheet" type="text/css" href="assets/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 	<script type="text/javascript" src="external-libraries/confusion-matrix-stats.js"></script>
 </head>
-<style type="text/css">
+<!-- <style type="text/css">
 	* {
 		font-family: awesome;
 	}
@@ -52,7 +52,7 @@
 		border: 0px !important;
 		margin-bottom: 20px;
 	}
-</style>
+</style> -->
 
 <body>
 	<?php 
@@ -134,7 +134,8 @@
 									continue;
 									}
 								?>
-								<a href="detailDokumen.php?id=<?= $res['Id']; ?>" class="list-group-item list-group-item-action ">
+								<a href="detailDokumen.php?id=<?= $res['Id']; ?>"
+									class="list-group-item list-group-item-action ">
 									<div class="d-flex w-100 justify-content-between">
 										<h5 class="mb-1 font-weight-bold"><?= $res['Judul']; ?></h5>
 										<small class="badge badge-info"><?= $res['nm_dk']; ?></small>
@@ -151,23 +152,32 @@
 				</div>
 			</div>
 		</div>
-		<nav>
-			<ul class="pagination justify-content-center">
-				<li class="page-item">
-					<a class="page-link" <?php if($halaman > 1){ echo "href='?halaman=$Previous'"; } ?>>Previous</a>
-				</li>
+		<div>
+			<ul class="pagination">
 				<?php 
-				for($x=1;$x<=$total_halaman;$x++){
-					?> 
-					<li class="page-item"><a class="page-link" href="?search=$keyword_user/halaman=<?php echo $x ?>"><?php echo $x; ?></a></li>
-					<?php
-				}
-				?>				
+					if($halaman > 1) {
+						echo "<li class='page-item'><a class='page-link' href='?halaman=$previous'>&laquo;</a></li>";
+					} else {
+						echo "<li class='page-item disabled'><a class='page-link' href='?halaman=$previous'>&laquo;</a></li>";
+					}
+				?>
+				
+				<?php 
+					for($x=1;$x<=$total_halaman;$x++){
+						if($x != $halaman) {
+							echo "<li class='page-item'><a class='page-link' href='?halaman=$x'>$x</a></li>";
+						} else {
+							echo "<li class='page-item active'><a class='page-link' href='?halaman=$x'>$x</a></li>";
+						}
+					}
+				?>
 				<li class="page-item">
-					<a  class="page-link" <?php if($halaman < $total_halaman) { echo "href='?halaman=$next'"; } ?>>Next</a>
+					<a class="page-link" <?php if($halaman < $total_halaman) { echo "href='?halaman=$next'"; } ?>>
+						&raquo;
+					</a>
 				</li>
 			</ul>
-		</nav>
+		</div>
 	</div>
 
 	<div class="modal fade bd-vector" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
@@ -244,7 +254,9 @@
 	</div>
 	<script type="text/javascript" src="assets\script.js"></script>
 	<script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+	</script>
 </body>
 
 </html>

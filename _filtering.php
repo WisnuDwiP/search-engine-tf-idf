@@ -6,31 +6,33 @@
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta name="referrer" content="strict-origin" />
-	<title>Sistem Informasi Rumput Laut</title>
-	<link rel="stylesheet" type="text/css" href="assets/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.min.css">
+    <meta name="referrer" content="strict-origin" />
+    <title>Sistem Informasi Rumput Laut</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <!-- Image and text -->
+
 <body>
     <nav class="navbar navbar-dark bg-primary">
-    <a class="navbar-brand" href="index.php">
-        <img src="assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-        STKI
-    </a>
+        <a class="navbar-brand" href="index.php">
+            <!-- <img src="assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> -->
+            SIRULA
+        </a>
     </nav>
     <br />
     <div class="container">
-    <div class="buton">
-    <a class="btn btn-primary btn-sm" href="_stemming.php">Stemming</a>
-    </div>
+        <div class="buton">
+            <a class="btn btn-primary btn-sm" href="_stemming.php">Stemming</a>
+        </div>
         <table class="table table-sm table-bordered">
             <tr class="bg-primary">
                 <td scope="col">Kode Dokumen</td>
                 <td scope="col">Term</td>
             </tr>
-     <?php       foreach($tb_tokenisasi as $row)
+            <?php       foreach($tb_tokenisasi as $row)
     {
         $hilang = explode(" ",$row['term']);
 
@@ -48,6 +50,7 @@
     ?>
         </table>
     </div>
-<script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script>
 </body>
+
 </html>

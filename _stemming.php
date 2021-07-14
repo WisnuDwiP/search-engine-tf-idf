@@ -34,19 +34,21 @@ foreach($data as $row)
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta name="referrer" content="strict-origin" />
-	<title>Sistem Informasi Rumput Laut</title>
-	<link rel="stylesheet" type="text/css" href="assets/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.min.css">
+    <meta name="referrer" content="strict-origin" />
+    <title>Sistem Informasi Rumput Laut</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <!-- Image and text -->
+
 <body>
     <nav class="navbar navbar-dark bg-primary">
-    <a class="navbar-brand" href="index.php">
-        <img src="assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-        STKI
-    </a>
+        <a class="navbar-brand" href="index.php">
+            <!-- <img src="assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> -->
+            SIRULA
+        </a>
     </nav>
     <br />
     <div class="container">
@@ -55,22 +57,23 @@ foreach($data as $row)
                 <td scope="col">Kode Dokumen</td>
                 <td scope="col">Term</td>
             </tr>
-      <?php foreach($data as $row) : 
+            <?php foreach($data as $row) : 
         $dokumen =  preproses($row['abstrak']);
         $pisah = explode(' ',$dokumen);
         $kode = $row['nm_dk'];
         foreach($pisah as $res) : ?>
-        <tr>
-            <td><?= $kode; ?></td>
-            <td><?= $res; ?></td>
-        </tr>
-        <?php endforeach; ?>
+            <tr>
+                <td><?= $kode; ?></td>
+                <td><?= $res; ?></td>
+            </tr>
+            <?php endforeach; ?>
 
 
 
-      <?php endforeach; ?>
+            <?php endforeach; ?>
         </table>
     </div>
-<script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script>
 </body>
+
 </html>
