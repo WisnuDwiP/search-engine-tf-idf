@@ -102,7 +102,7 @@
 
 		<?php 
 			include "koneksi.php";
-			$limit = 5;
+			$limit = 2;
 			$halaman = isset($_GET['halaman'])?(int)$_GET['halaman'] : 1;
 			$halaman_awal = ($halaman>1) ? ($halaman * $limit) - $limit : 0;
 
