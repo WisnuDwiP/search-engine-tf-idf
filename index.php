@@ -9,7 +9,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand text-primary text-weight-bold" href="#">SIRULA</a>
+    <a class="navbar-brand text-primary text-weight-bold" href="#">RULA PUSTAKA</a>
 	<button class="float-left btn btn-secondary my-2 my-sm-0" onclick="window.location.href='add_dokumen.php';"> Dokumen </button>
   </div>
 </nav>
@@ -31,7 +31,11 @@
 		</div>
 	</div>
 
-<script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+	</script>
 <!-- <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->
 </body>
 </html>

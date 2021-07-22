@@ -1,29 +1,9 @@
 <?php 
 
-function preproses($teks) {
-	include "koneksi.php";	
-	
-	// include composer autoloader
-	require_once __DIR__ . '/vendor/autoload.php';
+include 'fungsi.php';
+preproses($teks);
 
-	// create stemmer Sastrawi
-
-	$stemmerFactory = new \Sastrawi\Stemmer\StemmerFactory();
-	$stemmer  = $stemmerFactory->createStemmer();
-
-	$get_stopword = file_get_contents("stopword.json");
-	$stopword = json_decode($get_stopword,true);
-	
-	$data = explode(" ", $stemmer->stem($teks));
-	$result = array_diff($data,$stopword);
-	$hasil = implode(" ",$result);
-
-	//Proses Stemming
-	$teks = $hasil;
-	return $teks;
-} //end function preproses
-
-$konek = mysqli_connect("localhost","root","","db_sirula");
+include "koneksi.php";
 $keyword_user = $_GET['search'];
 
 $konek->query("DELETE FROM tbkeyword");

@@ -3,75 +3,39 @@
 
 <head>
 	<meta name="referrer" content="strict-origin" />
-	<title>SIRULA</title>
+	<title>RULA PUSTAKA</title>
 	<link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-	<script type="text/javascript" src="external-libraries/confusion-matrix-stats.js"></script>
+	<!-- <script type="text/javascript" src="external-libraries/confusion-matrix-stats.js"></script> -->
 </head>
-<!-- <style type="text/css">
-	* {
-		font-family: awesome;
-	}
-
-	.col-example {
-		padding: 1rem;
-		background-color: #33b5e5;
-		border: 2px solid #fff;
-		color: #fff;
-		text-align: center;
-	}
-
-	.search_form input {
-		padding: 20px;
-		border-top-left-radius: 2em;
-		border-bottom-left-radius: 2em;
-		border: 1px solid #eaeaea !important;
-	}
-
-	.search_form input:focus {
-		border: 0px !important;
-		outline: none !important;
-		box-shadow: none !important;
-		border: 1px solid #eaeaea !important;
-	}
-
-	.search_form button {
-		padding: 0 20px !important;
-		border-bottom-right-radius: 2em;
-		border-top-right-radius: 2em;
-		border: 1px solid #eaeaea !important;
-	}
-
-	.action {
-		font-size: 11px;
-		margin-left: 25px;
-		color: #b7b7b7;
-	}
-
-	.result-list .list-group-item {
-		border: 0px !important;
-		margin-bottom: 20px;
-	}
-</style> -->
 
 <body>
-	<?php 
+	<?php
+	$time_start = microtime(true);
+	
 	$get_keyword_user = $_GET['search'];
 
 	include 'fungsi.php';
 	buatindex();
-	hitungbobot(); 
-	panjangvektor(); 
+	
+	hitungbobot();
+	
+	panjangvektor();
+	
 	hitungBobotKeyword();
+	
 	WdWdi();
+	
 	perangkinganDokumen();
+
+	echo 'Total execution time 6 in seconds: ' . (microtime(true) - $time_start);
 	 ?>
 	<div class="row">
 		<div class="col-10" style="border-bottom: 1px solid #f7f7f7;">
 			<div class="row">
 				<div class="col-2 d-flex align-items-center justify-content-center">
 					<a href="index.php">
-						<h3>SIRULA</h3>
+						<h3>RULA PUSTAKA</h3>
 					</a>
 				</div>
 				<div class="col-5 ">
@@ -93,8 +57,8 @@
 						<button class="btn btn-warning btn-sm btn-outline" data-toggle="modal"
 							data-target=".bd-bobot">Bobot Keyword</button>
 						<a class="btn btn-danger btn-sm btn-outline" href="bobotDokumen.php">Indexing</a>
-						<a class="btn btn-danger btn-sm btn-outline" href="bobotDokumen.php">Precision</a>
-						<a class="btn btn-danger btn-sm btn-outline" href="bobotDokumen.php">Recall</a>
+						<!-- <a class="btn btn-danger btn-sm btn-outline" href="bobotDokumen.php">Precision</a>
+						<a class="btn btn-danger btn-sm btn-outline" href="bobotDokumen.php">Recall</a> -->
 					</div>
 				</div>
 			</div>
@@ -102,7 +66,7 @@
 
 		<?php 
 			include "koneksi.php";
-			$limit = 2;
+			$limit = 10;
 			$halaman = isset($_GET['halaman'])?(int)$_GET['halaman'] : 1;
 			$halaman_awal = ($halaman>1) ? ($halaman * $limit) - $limit : 0;
 
@@ -252,8 +216,9 @@
 		</div>
 
 	</div>
-	<script type="text/javascript" src="assets\script.js"></script>
-	<script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="assets\script.js"></script> -->
+	<!-- <script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script> -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 	</script>

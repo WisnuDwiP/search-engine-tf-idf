@@ -7,7 +7,7 @@ $konek->query("TRUNCATE TABLE tbtokenisasi");
     foreach($data_korpus as $row)
     {
 
-        $word_chill = strtolower($row['abstrak']);
+        $word_chill = strtolower($row['judul']);
         
         $hilangkan = preg_replace("/[^a-zA-Z]/", ' ', $word_chill);
         $hilangkan2 = preg_replace ("/ +/", " ", $hilangkan); # convert all multispaces to space        
@@ -29,7 +29,7 @@ $konek->query("TRUNCATE TABLE tbtokenisasi");
         }
     }
 
-    $limit = 10;
+    $limit = 5;
 	$halaman = isset($_GET['halaman'])?(int)$_GET['halaman'] : 1;
 	$halaman_awal = ($halaman>1) ? ($halaman * $limit) - $limit : 0;
 
@@ -60,7 +60,7 @@ $konek->query("TRUNCATE TABLE tbtokenisasi");
     <nav class="navbar navbar-dark bg-primary">
         <a class="navbar-brand" href="index.php">
             <!-- <img src="assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> -->
-            SIRULA
+            RULA PUSTAKA
         </a>
     </nav>
     <br />
@@ -113,6 +113,9 @@ $konek->query("TRUNCATE TABLE tbtokenisasi");
         </div>
     </div>
     <script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+	</script>
 </body>
 
 </html>

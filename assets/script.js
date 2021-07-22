@@ -1,5 +1,5 @@
 const confusionMatrix = new ConfusionMatrix({
-    labels: ["Happiness", "Sadness", "Disgust"],
+    labels: [$keyword_user],
     matrix: [[50, 2, 3],
     [8, 50, 5],
     [2, 5, 50]]

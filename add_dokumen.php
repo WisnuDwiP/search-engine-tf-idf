@@ -189,7 +189,7 @@
 			</div>
 		</div>
 
-		<!-- Modal -->
+		<!-- Modal Stopword-->
 
 		<div class="modal fade" id="stopword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-scrollable">
@@ -219,6 +219,7 @@
 				</div>
 			</div>
 		</div>
+		
 	</div>
 
 	<script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script>

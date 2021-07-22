@@ -3,27 +3,21 @@
 include 'koneksi.php';
 
     $result = mysqli_query($konek," SELECT * FROM `tbindex` JOIN `tbjurnal` on tbindex.DocId = tbjurnal.Id ");
-
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta name="referrer" content="strict-origin" />
 	<title>Bobot Dokumen</title>
-	<link rel="stylesheet" type="text/css" href="assets/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.min.css">
-    <style>
-        *{
-      font-family: awesome;
-    }
-    </style>
+	<link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 <!-- Image and text -->
 <nav class="navbar navbar-dark bg-primary">
   <a class="navbar-brand" href="index.php">
     <!-- <img src="assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> -->
-    SIRULA
+    RULA PUSTAKA
   </a>
 </nav>
 <br />
@@ -49,5 +43,8 @@ include 'koneksi.php';
 </div>
 
 <script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+	</script>
 </body>
 </html>

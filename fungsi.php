@@ -107,6 +107,7 @@ function perangkinganDokumen()
 	}
 }
 
+//ini yang bikin lama
 function buatindex() {
 		
 		include "koneksi.php";
@@ -120,7 +121,7 @@ function buatindex() {
 
 		while($row = mysqli_fetch_array($resBerita)) {
 			$docId = $row['Id'];
-			$berita = $row['judul']." ".$row['abstrak'];
+			$berita = $row['judul'];
 
   			$berita = preproses($berita);
 
@@ -338,10 +339,10 @@ function ambilcache($keyword) {
 				$rowBerita = mysqli_fetch_array($resBerita);
 
 				$judul = $rowBerita['judul'];
-				$berita = $rowBerita['abstrak'];
+				//$berita = $rowBerita['abstrak'];
 				$beritaa = $docId . ". (" . $sim . ") <font color=blue><b>" . $judul . "</b></font><br />";
 				print ($beritaa);
-				print($berita . "<hr />");
+				//print($berita . "<hr />");
 			} else {
 				print("<b>Tidak ada... </b><hr />");
 			}
@@ -364,10 +365,10 @@ function ambilcache($keyword) {
 				$rowBerita = mysqli_fetch_array($resBerita);
 
 				$judul = $rowBerita['judul'];
-				$berita = $rowBerita['abstrak'];
+				//$berita = $rowBerita['abstrak'];
 
 				print($docId . ". (" . $sim . ") <font color=blue><b>" . $judul . "</b></font><br />");
-				print($berita . "<hr />");
+				//print($berita . "<hr />");
 			} else {
 				print("<b>Tidak ada... </b><hr />");
 			}

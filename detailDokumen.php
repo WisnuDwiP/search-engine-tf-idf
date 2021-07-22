@@ -27,7 +27,7 @@ include 'koneksi.php';
 <nav class="navbar navbar-dark bg-primary">
   <a class="navbar-brand" href="index.php">
     <!-- <img src="assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> -->
-    SIRULA
+    RULA PUSTAKA
   </a>
 </nav>
 <br />
